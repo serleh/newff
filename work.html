@@ -18,28 +18,29 @@
             <header>
                 <!-- text to center -->
                 <h1 v-text="sitename" class="text-center"></h1>
-                <button v-on:click='showCheckout'  v-show="display" v-if="buttonvalue()" >
+                <button v-on:click='showCheckout'  v-show=" cartItemCount > 0" v-if="buttonvalue()" >
                      {{cartItemCount}}
     
                     <span class="fas fa-cart-plus"></span> Checkout
                     
                 </button>
-                
-                <div v-for="lesson in cart2">
-                    <h3 v-text="lesson.title"></h3>
+               <div style="display: flex; flex-wrap: wrap; " >
+                <div v-for="lesson in cart2" >
+                     <h3 v-text="lesson.title"></h3>
                     <figure>
                         <img v-bind:src="lesson.image" height="100" width="100">
                     </figure>
                     <p>Description:{{lesson.description}}</p>
                     <p>Location:{{lesson.location}}</p>
-                    <p>Price: {{lesson.price}}</p>
+                    <p>Price:$ {{lesson.price}}</p>
                     <p>Spaces: only {{lesson.availableInventory - cartCount(lesson.id)}} are left!</p>
-                    <button v-on:click='removeproduct(lesson)' v-if='canAddToCart(lesson)'>Remove from cart</button>
+                    <button v-on:click='removeproduct(lesson)' v-if='canAddToCart(lesson)'>Remove from cart</button> 
     
     
-                    <button disabled="disable" v-else>Add to cart</button>
+                    <button disabled="disable" v-else></button>
+                    </div>
     
-                </div>
+                </div> 
     
     
             </header>
@@ -116,7 +117,7 @@
                     
                 </div>
                 <div v-else>
-                    <h2>Checkout</h2>
+                    <h2 style="text-align: center;">Checkout</h2>
                     <p>
                         <b>First Name:</b>
                         <input v-model="order.firstName" placeholder="ENTER YOUR FIRST NAME!" required />
@@ -268,6 +269,7 @@
     
                     showCheckout() {
                         this.showLesson = this.showLesson ? false : true;
+                        
     
                     },
     

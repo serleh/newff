@@ -25,7 +25,7 @@ let myArr = [
       "description": "The little masterChef.",
       "location":"Site Campus",
       "price": 11.00,
-      "image": "images/javaBabies.jpg",
+      "image": "images/cc.jpg",
       "availableInventory": 14,
       
     },
@@ -78,7 +78,7 @@ let myArr = [
     },
     {
       "id": 1009,
-      "title": "CREATIVE DRAWING",
+      "title": " DRAWING",
       "description": " Color your passion",
       "location":"BUK",
       "price": 41.09,
