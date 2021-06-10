@@ -171,7 +171,23 @@
                         phone: '',
                        
                     },
+
+                    orderInfo:{}
     
+
+                },
+
+                created:function(){
+                    fetch('https://salehsnode.herokuapp.com/collection/lessonInfo').then(
+                        function(response){
+                            response.json().then(
+                                function(json){
+                                    myLesson.orderInfo = json;
+                                }
+                            )
+                        }
+                    )
+
                 },
                 methods: {
                     addToCart(lesson) {
