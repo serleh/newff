@@ -329,11 +329,11 @@
                         },
                         body: JSON.stringify({ Name: this.order.firstName, Phone: this.order.phone, ProductsInOrder: this.cart.map(({ title }) => title) })}).then(function () {
                         } ),
-                        this.cart.array.forEach(element => {
+                        this.cart2.array.forEach(element => {
                         
                     });
                         
-                    fetch('https://webcoursework2.herokuapp.com/collection/Lesson' + element._id, {
+                    fetch('https://webcoursework2.herokuapp.com/collection/Lesson' +element._id, {
 
                         method: 'PUT',
 
