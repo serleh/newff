@@ -321,20 +321,10 @@
     
                     },
                     submitForm(){
-                      
-                        fetch('https://salehsnode.herokuapp.com/collection/orderInfo', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ Name: this.order.firstName, Phone: this.order.phone, ProductsInOrder: this.cart.map(({ title }) => title) })}).then(function () {
-                        } ),
-
-                        this.cart.array.forEach(element => {
+                    this.cart.array.forEach(element => {
                         
                     });
-                        
-                    fetch('https://webcoursework2.herokuapp.com/collection/lessonInfo' + _id, {
+                    fetch('https://salehsnode.herokuapp.com/collection/lessonInfo' + id, {
 
                         method: 'PUT',
 
@@ -342,11 +332,24 @@
 
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ availableInventory: element.availableInventory })}).then(function (data) {
+                        body: JSON.stringify({ availableInventory: element.availelementableInventory })}).then(function (data) {
 
-            })
+            }),
 
-                    },
+            
+            fetch('https://salehsnode.herokuapp.com/collection/orderInfo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ Name: this.order.firstName, Phone: this.order.phone, ProductsInOrder: this.cart.map(({ title }) => title) })}).then(function () {
+                        }   
+                        )},                     
+
+
+                
+
+                    
                     canAddToCart(lesson) {
                         return lesson.availableInventory > this.cartCount(lesson.id);
                     },
