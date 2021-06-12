@@ -321,21 +321,21 @@
     
                     },
                     submitForm(){
-                    this.cart.array.forEach(element => {
+                    // this.cart.array.forEach(element => {
                         
-                    });
-                    fetch('https://salehsnode.herokuapp.com/collection/lessonInfo' + element_id, {
+            //         // });
+            //         fetch('https://salehsnode.herokuapp.com/collection/lessonInfo', {
 
-                        method: 'PUT',
+            //             method: 'PUT',
 
-                        headers: {
+            //             headers: {
 
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ availableInventory: element.availelementableInventory })}).then(function (data) {
+            //                 'Content-Type': 'application/json',
+            //             },
+            //             body: JSON.stringify({ availableInventory: element.availelementableInventory })}).then(function (data) {
 
-            }),
-
+            // }),
+            alert(" Succesfuly added");
             
             fetch('https://salehsnode.herokuapp.com/collection/orderInfo', {
                         method: 'POST',
@@ -344,6 +344,7 @@
                         },
                         body: JSON.stringify({ Name: this.order.firstName, Phone: this.order.phone, ProductsInOrder: this.cart.map(({ title }) => title) })}).then(function () {
                         }   
+                        
                         )},                     
 
 
